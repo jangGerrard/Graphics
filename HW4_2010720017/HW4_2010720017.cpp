@@ -10,6 +10,11 @@
 #include <math.h>
 #include "Math.h"
 
+/*
+ * 조교님!! release모드에서는 실행이 안되는데,
+ * debug모드에서는 실행이 됩니다.
+*/
+
 #define B0(t) ( (1-t) * (1-t) * (1-t) )
 #define B1(t) ( 3 * (1-t) * (1-t) * t )
 #define B2(t) ( 3 * t * t * (1-t) )

@@ -112,7 +112,7 @@ void setupViewing()
 	double cam_x = cam_dist * sin( cam_phi ) * sin( cam_theta );
 	double cam_y = cam_dist * cos( cam_phi );
 	double cam_z = cam_dist * sin( cam_phi ) * cos( cam_theta );
-	std::cout << cam_x << ", " << cam_y << ", " << cam_z << std::endl;
+
 	gluLookAt( cam_x, cam_y, cam_z, 0, 0, 0, 0, 1, 0 );
 }
 
@@ -391,11 +391,6 @@ void setCornPoints() //cone points 생성 및 저장
 	}
 }
 
-void drawSphere()
-{
-	
-}
-
 void drawTriangle(Point p1, Point p2, Point p3)
 {
 	glBegin(GL_TRIANGLES);
@@ -433,31 +428,29 @@ void drawScene()
 		drawFloor();
 	glPopMatrix();
 
-	//glPushMatrix(); //pyramid
-	//	glTranslatef(-5, 0, -5);
-	//	glRotatef(angle, 0, 0, 1);
-	//	drawPyramid();
-	//glPopMatrix();
+	glPushMatrix(); //pyramid
+		glTranslatef(-5, 0, -5);
+		glRotatef(angle, 0, 0, 1);
+		drawPyramid();
+	glPopMatrix();
 
-	//glPushMatrix(); //cube
-	//	glTranslatef(5, 0, -5);
-	//	glRotatef(angle, 1, 0, 0);
-	//	drawCube();
-	//glPopMatrix();
+	glPushMatrix(); //cube
+		glTranslatef(5, 0, -5);
+		glRotatef(angle, 1, 0, 0);
+		drawCube();
+	glPopMatrix();
 
-	//glPushMatrix(); //torus
-	//	glTranslatef(-5, 0, 5);
-	//	glRotatef(angle, 0, 0, 1);
-	//	drawTorus();
-	//glPopMatrix();
+	glPushMatrix(); //torus
+		glTranslatef(-5, 0, 5);
+		glRotatef(angle, 0, 0, 1);
+		drawTorus();
+	glPopMatrix();
 
-	//glPushMatrix();  //cone
-	//	glTranslatef(5, 0, 5);
-	//	glRotatef(angle, 0, 0, 1);
-	//	drawCorn();
-	//glPopMatrix();
-	
-	drawSphere();
+	glPushMatrix();  //cone
+		glTranslatef(5, 0, 5);
+		glRotatef(angle, 0, 0, 1);
+		drawCorn();
+	glPopMatrix();
 
 	glPopMatrix();
 }
